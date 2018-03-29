@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthFramework", "AuthFramework\AuthFramework.csproj", "{B25CFCBE-B91A-4B70-BDFC-4135E82BA6E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{329EC065-51E7-42E7-A14E-E3AABD41C124}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B25CFCBE-B91A-4B70-BDFC-4135E82BA6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25CFCBE-B91A-4B70-BDFC-4135E82BA6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25CFCBE-B91A-4B70-BDFC-4135E82BA6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25CFCBE-B91A-4B70-BDFC-4135E82BA6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{329EC065-51E7-42E7-A14E-E3AABD41C124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329EC065-51E7-42E7-A14E-E3AABD41C124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329EC065-51E7-42E7-A14E-E3AABD41C124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329EC065-51E7-42E7-A14E-E3AABD41C124}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE62148F-8228-4657-92DB-7D9E690FC4CE}
+	EndGlobalSection
+EndGlobal
