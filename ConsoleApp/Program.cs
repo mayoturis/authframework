@@ -13,9 +13,12 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            using (var context = new AuthContext())
+            using (var context = new AdminContext())
             {
-                context.Database.ExecuteSqlCommand($"CREATE USER @name @'localhost' IDENTIFIED BY @password ;", new MySqlParameter("@name", "majkdo"), new MySqlParameter("@password", "heslo"));
+                context.Database.ExecuteSqlCommand($"DROP USER @name @'localhost'", new MySqlParameter("@name", "edfg"));
+                //foreach (var r in result.ToList())
+                    //Console.Out.WriteLine(r);
+
             }
         }
     }

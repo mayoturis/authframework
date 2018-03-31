@@ -54,9 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthContext.cs" />
+    <Compile Include="AdminContext.cs" />
     <Compile Include="Authenticator.cs" />
-    <Compile Include="Configuration.cs" />
+    <Compile Include="Configurator.cs" />
+    <Compile Include="ConnectionCredentials.cs" />
+    <Compile Include="IAdminContextProvider.cs" />
+    <Compile Include="MysqlAdminContextProvider.cs" />
+    <Compile Include="MysqlContextProvider.cs" />
     <Compile Include="IContextProvider.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
