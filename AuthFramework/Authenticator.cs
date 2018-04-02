@@ -10,7 +10,10 @@ namespace AuthFramework
     {
         private readonly IAdminContextProvider contextProvider = new MysqlAdminContextProvider();
 
-        // registers new user
+        /// <summary>
+        /// Registers new user with INSERT, SELECT and UPDATE right on configured database
+        /// </summary>
+        /// <param name="user">User to be registered</param>
         public void Register(IUser user)
         {
             this.contextProvider.CreateAdminContext().Database.ExecuteSqlCommand(
@@ -20,18 +23,11 @@ namespace AuthFramework
                 new MySqlParameter("@password", user.Password));
         }
 
-        // returns true if credentials are correct, otherwise false
-        public bool Authenticate(IUser user)
-        {
-            if (this.CanAuthenticate(user)) // user was found
-            {
-                Configurator.AuthenticatedUser = user;
-                return true;
-            }
-
-            return false;
-        }
-
+        /// <summary>
+        /// Determines whether user can be successfully authenticated
+        /// </summary>
+        /// <param name="user">user to be authenticated</param>
+        /// <returns>true if credentials are correct, false otherwise</returns>
         public bool CanAuthenticate(IUser user)
         {
             var result = this.contextProvider.CreateAdminContext().Database.SqlQuery<string>(
@@ -41,11 +37,38 @@ namespace AuthFramework
             return result != null && result == "1";
         }
 
+        /// <summary>
+        /// Determines whether user can be successfully authenticated. 
+        /// If yes than given user will be used for all default DB authentications.
+        /// This can be useful, because in the places where we are creating transactions we don't 
+        /// have to have instance of given user
+        /// </summary>
+        /// <param name="user">user to be authenticated</param>
+        /// <returns>true if credentials are correct, false otherwise</returns>
+        public bool Authenticate(IUser user)
+        {
+            if (this.CanAuthenticate(user)) // user was found
+            {
+                SetUser(user);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Sets user to be used for DB authentication without first determining if credentials are correct
+        /// </summary>
+        /// <param name="user">user to be used for DB authentication</param>
         public void SetUser(IUser user)
         {
             Configurator.AuthenticatedUser = user;
         }
 
+        /// <summary>
+        /// Deletes user with given username
+        /// </summary>
+        /// <param name="userName"></param>
         public void Delete(string userName)
         {
             this.contextProvider.CreateAdminContext().Database.ExecuteSqlCommand($"DROP USER @name @'{Configurator.AdminCredentials.Server}'", new MySqlParameter("@name", userName));

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AuthFramework
 {
-    class ConnectionCredentials
+    internal class ConnectionCredentials
     {
         public string Server { get; set; }
         public string Database { get; set; }

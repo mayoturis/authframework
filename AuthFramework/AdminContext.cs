@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace AuthFramework
 {
-    public class AdminContext : DbContext
+    internal class AdminContext : DbContext
     {
-        // "Server=localhost;Database=skuska;Uid=root;Pwd="
         public AdminContext(string connectionString) : base(connectionString)
         {
             Database.SetInitializer<AdminContext>(null);

@@ -34,6 +34,13 @@ namespace AuthFramework
             set { Configurator._authenticatedUser = value; }
         }
 
+        /// <summary>
+        /// Configure credentials of admin account
+        /// </summary>
+        /// <param name="server">Server (e.g. localhost)</param>
+        /// <param name="database">Database name</param>
+        /// <param name="adminUsername">Admin's username</param>
+        /// <param name="adminPassword">Admin's password</param>
         public static void ConfigureAdminAccount(string server, string database, string adminUsername, string adminPassword)
         {
             Configurator.AdminCredentials = new ConnectionCredentials()

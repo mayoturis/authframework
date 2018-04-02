@@ -9,11 +9,13 @@ namespace AuthFramework
 {
     public class MysqlContextProvider : IContextProvider
     {
+        /// <inheritdoc cref="IContextProvider.CreateContext{TContext}()"/>
         public TContext CreateContext<TContext>() where TContext : DbContext
         {
             return this.CreateContext<TContext>(Configurator.AuthenticatedUser);
         }
 
+        /// <inheritdoc cref="IContextProvider.CreateContext{TContext}(IUser)"/>
         public TContext CreateContext<TContext>(IUser user) where TContext : DbContext
         {
             return (TContext) Activator.CreateInstance(typeof(TContext),
@@ -29,6 +31,5 @@ namespace AuthFramework
         {
             return $"Server={server};Database={database};Uid={username};Pwd={password}";
         }
-        
     }
 }
