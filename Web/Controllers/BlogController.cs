@@ -153,7 +153,7 @@ namespace Web.Controllers
 
             return View("Error");
         }
-
+        /*
         // POST: Blog/Delete
         //[HttpPost]
         public ActionResult Delete(int id)
@@ -169,7 +169,7 @@ namespace Web.Controllers
             };
             return RedirectToAction("IndexBlogsOfUser");
 
-        }
+        }*/
         
     }
 }
