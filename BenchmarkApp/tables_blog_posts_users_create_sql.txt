@@ -1,0 +1,36 @@
+﻿SET NAMES utf8;
+SET time_zone = '+00:00';
+
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `body` longtext NOT NULL,
+  `published` datetime DEFAULT CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL,
+  `User_Id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`User_Id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `commentText` longtext NOT NULL,
+  `commentDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL,
+  `Post_Id` int(11) NOT NULL,
+  `User_Id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`Post_Id`) REFERENCES `posts` (`id`),
+  FOREIGN KEY (`User_Id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
