@@ -25,8 +25,8 @@ namespace ConsoleApp
 
             var user = new User()
             {
-                Username = "Marek",
-                Password = "password"
+                Username = "Test",
+                Password = "Testqwqw"
             };
 
             var authenticator = new Authenticator();
@@ -44,15 +44,16 @@ namespace ConsoleApp
 
             var user1 = new BlogUser()
             {
-                Username = "User1",
-                Password = "password1",
-                FullName = "John Doe"
+                Username = "Userqcv1k",
+                Password = "passcvqword1k",
+                FullName = "Johcqvn Doek"
             };
+
             var user2 = new BlogUser()
             {
-                Username = "User2",
-                Password = "password2",
-                FullName = "Jane Doe"
+                Username = "Usercqv2k",
+                Password = "pcvassqword2k",
+                FullName = "Janqecv Doek"
             };
 
             authenticator.Register(user1); // don't run this twice, it will throw exception that same user already exists

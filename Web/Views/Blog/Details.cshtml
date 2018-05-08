@@ -1,0 +1,65 @@
+﻿@model Web.Models.BlogPost
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    body {
+        background-image: url("http://www.myfreetextures.com/wp-content/uploads/2011/06/illust31.jpg");
+    }
+</style>
+<body>
+    <h2>Details</h2>
+
+    <div>
+        <h4>BlogPost</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Text)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>

@@ -33,7 +33,19 @@ namespace AuthFramework
             var result = this.contextProvider.CreateAdminContext().Database.SqlQuery<string>(
                 $"SELECT 1 FROM mysql.user WHERE Host = '{Configurator.AdminCredentials.Server}' and User = @name and Password = PASSWORD(@password) ;",
                 new MySqlParameter("@name", user.Username), new MySqlParameter("@password", user.Password)).FirstOrDefault();
+            return result != null && result == "1";
+        }
 
+        /// <summary>
+        /// Determines whether user exists
+        /// </summary>
+        /// <param name="user">user to be tested</param>
+        /// <returns>true if user exists false otherwise</returns>
+        public bool UserExists(IUser user)
+        {
+            var result = this.contextProvider.CreateAdminContext().Database.SqlQuery<string>(
+                $"SELECT 1 FROM mysql.user WHERE Host = '{Configurator.AdminCredentials.Server}' and User = @name;",
+                new MySqlParameter("@name", user.Username)).FirstOrDefault();
             return result != null && result == "1";
         }
 

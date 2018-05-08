@@ -13,7 +13,7 @@ namespace AuthFramework
             get
             {
                 if (Configurator._adminCredentials == null)
-                    throw new InvalidOperationException("Connection credentials where not set");
+                    throw new InvalidOperationException("Connection credentials were not set");
 
                 return Configurator._adminCredentials;
             }

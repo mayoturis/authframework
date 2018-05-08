@@ -6,16 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp
+
+namespace Web.Models
 {
-    class BlogPost
+    public class BlogPost
     {
         [Key]
         public int Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
-
-
-        public BlogUser BlogUser { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
+        public BlogUser CreatedBy { get; set; }
     }
 }
